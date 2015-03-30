@@ -29,6 +29,6 @@ I don't like this.
 
 Then, all you have to do is
 
-	include "Flexiglass.hpp"
+	#include "Flexiglass.hpp"
 
 and make sure to add a -I and and -L for both the directories for the header file and the static library.
