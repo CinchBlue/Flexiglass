@@ -1,7 +1,7 @@
 CXX = g++
 CXXFLAGS = -pipe -std=c++11 -Wall -Wextra -pedantic
 
-BOOST_INCLUDE = dependencies/boost
+BOOST_INCLUDE = dependencies
 
 SRC := $(wildcard src/*.cpp)
 OBJ := $(addprefix obj/,$(notdir $(SRC:.cpp=.o)))
