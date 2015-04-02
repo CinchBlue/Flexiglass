@@ -9,7 +9,7 @@ Building Flexiglass is quite easy. It has only 10 source files. The Makefile in 
 
 * Boost.Any (Boost version 1.57.0)
 
-And that's it. The Makefile is set to look for Boost in a directory called "dependencies/boost", so just download the latest version of Boost that is still compatible with Boost.Any, place it under dependencies, and then rename the folder to Boost.
+And that's it. Boost.Any is already able to be compiled into the library without any external requirements on your part. It's also in the include/boost directory.
 
 On Windows, if you use MinGW-w64 you need only use these commands:
 
@@ -23,9 +23,7 @@ If you use Linux, it's not too hard to create another makefile that does the sam
 
 ##Using Flexiglass
 
-Flexiglass depends on Boost.Any, which means that you must provide Boost.Any and any of its dependencies for the library.
-
-I don't like this.
+Flexiglass depends on Boost.Any, but since it is already automatically compiled with your program, there are no worries.
 
 Then, all you have to do is
 

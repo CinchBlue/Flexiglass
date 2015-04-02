@@ -1,6 +1,8 @@
 #ifndef FLEXIGLASS_FLEXIGLASS_HPP
 #define FLEXIGLASS_FLEXIGLASS_HPP
 
+#include "boost/any.hpp"
+
 #include "../src/Event.hpp"
 #include "../src/Event_Queue.hpp"
 #include "../src/Event_Receivable.hpp"
