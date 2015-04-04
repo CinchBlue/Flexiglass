@@ -4,15 +4,15 @@
 int main()
 {
 	//Events in Flexiglass can only be created
-	//with its name and type provided.
+	//with its name and type provided as strings
 	flgl::Event* e = new flgl::Event("Event", "Text");
 	std::string str = "Hello World!";
 	std::string str2 = "This is the second insertion into the list.";
 	
 	//Add info onto the queue.
 	//Order does matter. First in is first out (FIFO)
-	e->push_info(str);
-	e->push_info(str2);
+	e->push_data(str);
+	e->push_data(str2);
 	
 	//Create an event queue
 	flgl::Event_Queue q;
@@ -30,15 +30,14 @@ int main()
 	std::cout << received.get_type() << std::endl;
 	
 	//Retrieve the list of data from the event
-	flgl::info_list event_data = received.get_info();
+	flgl::info_list event_data = received.get_data();
 	
 	//Start popping from the front
 	for (auto it : event_data)
 	{
 		//Use a template to unpack your data how you see fit.
-		//It's just a light wrapper over boost::any_cast<T> so
-		//look at the Boost.Any reference if you encounter any hiccups
 		std::cout << flgl::unpack<std::string>(it) << std::endl;
 	}
+
 	return 0;
 }
