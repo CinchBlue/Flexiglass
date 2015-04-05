@@ -13,10 +13,15 @@ namespace flgl
 class Event_Queue
 {
 private:
+	//TODO use weak_ptr for this
 	std::queue<Event> events;
 	std::vector<Event_Listener*> listeners;
 public:
 	//Default for -tors
+	Event_Queue() = default;
+	//Event_Queue is not copyable, but is move-constructable
+	Event_Queue(const Event_Queue&) = delete;
+	Event_Queue(Event_Queue&&) = default;
 
 	//Add and remove functions
 	void add_listener(Event_Listener* listener_ptr);

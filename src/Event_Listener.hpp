@@ -11,8 +11,6 @@ namespace flgl
 //Must be extended
 class Event_Listener
 {
-protected:
-	Event_Receivable* owner;
 public:
 	Event_Listener(Event_Receivable* owner_obj);
 	~Event_Listener() = default;
@@ -30,6 +28,9 @@ public:
 	void set_owner(Event_Receivable* owner_obj) {owner = owner_obj;}
 
 	Event_Receivable* get_owner_obj() {return owner;}
+protected:
+	//TODO integrate a weak_ptr here
+	Event_Receivable* owner;
 };
 
 } //namespace flgl

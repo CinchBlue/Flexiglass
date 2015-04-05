@@ -8,7 +8,7 @@ namespace flgl
 {
 
 //
-typedef std::list<flgl::any> data_list;
+typedef std::deque<flgl::any> data_list;
 
 /*
  * Event is used extensively within the program.
@@ -20,33 +20,54 @@ typedef std::list<flgl::any> data_list;
  */
 class Event
 {
-private:
-	std::string name;
-	std::string type;
-	std::list<flgl::any> data;
 public:
 	//Constructor
 	//Events can only be constructed with the strings provided
 	Event(const std::string& name_str, const std::string& type_str)
-	{
-		name = name_str;
-		type = type_str;
-	}
+	:	name(name_str),
+		type(type_str)
+	{}
 	
 	//Destructor
 	~Event() = default;
 	
+	//Copy constructor
+	Event(const Event& other)
+	: 	name(other.name),
+		type(other.type),
+		data(other.data)
+	{}
+	
+	//Copy assignment
+	Event& operator=(const Event& other)
+	{
+		if (this != &other)
+		{
+			name = other.name;
+			type = other.type;
+			data = other.data;
+		}
+		return *this;
+	}
+	
+	//Move constructor
+	Event(Event&& other)
+	:	name(std::move(other.name)),
+		type(std::move(other.type)),
+		data(std::move(other.data))
+	{}
+	
+	//Move assignment
+	Event& operator=(Event&& other)
+	{
+		std::swap(*this, other);
+		return *this;
+	}
+	
 	//Copy and move data
 	void attach_data(flgl::any& a) {data.push_back(a);}
 	void attach_data(flgl::any&& a) {data.emplace_back(a);}
-	
-	//Assignment
-	void operator=(Event& other)
-	{
-		name = other.name;
-		type = other.type;
-		data = other.data;
-	}
+
 	
 	//Pushing data
 	template <class T> void push_data(T i)
@@ -66,6 +87,10 @@ public:
 	
 	//Clear
 	void clear_data() {data.clear();}
+private:
+	std::string name;
+	std::string type;
+	std::deque<flgl::any> data;
 };
 
 //Used to extract data from boost_any objects.

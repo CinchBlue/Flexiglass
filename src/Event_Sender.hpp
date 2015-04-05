@@ -27,6 +27,7 @@ public:
 	Event_Queue* get_event_queue() {return event_queue;}
 
 private:
+	//TODO perhaps should be a shared_ptr?
 	Event_Queue* event_queue;
 };
 

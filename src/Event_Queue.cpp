@@ -11,7 +11,7 @@ void Event_Queue::add_listener(Event_Listener* listener_ptr)
 //Returns TRUE on removing receiver
 bool Event_Queue::remove_listener(Event_Listener* listener_ptr)
 {
-	for(std::vector<Event_Listener*>::iterator it = listeners.begin(); it != listeners.end(); ++it)
+	for(auto it = listeners.begin(); it != listeners.end(); ++it)
 	{
 		if(*it == listener_ptr)
 		{

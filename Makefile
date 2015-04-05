@@ -10,8 +10,8 @@ obj/%.o : src/%.cpp
 lib/libflexiglass.a: $(OBJ) $(SRC)
 	ar rcs lib/libflexiglass.a $(OBJ)
 	
-windows_clean:
+c:
 	rmdir obj /s
 	
-windows_prep:
+p:
 	mkdir obj
