@@ -13,10 +13,10 @@ namespace flgl
 class Event_Receivable
 {
 public:
-	virtual ~Event_Receivable() = 0;
 	virtual void on_notify(Event* e) = 0;
 
 };
+
 
 } //namespace flgl
 

@@ -2,6 +2,10 @@
 
 namespace flgl
 {
+	
+Event_Sender::Event_Sender(Event_Queue& e_queue)
+: 	event_queue(&e_queue)
+{}
 
 void Event_Sender::send_event(Event& e)
 {

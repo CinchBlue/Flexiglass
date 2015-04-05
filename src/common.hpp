@@ -7,6 +7,4 @@
 #include <list>
 #include <queue>
 
-#include "boost/any.hpp"
-
 #endif //FLEXIGLASS_COMMON_HPP

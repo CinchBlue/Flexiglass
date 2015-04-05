@@ -19,12 +19,27 @@ public:
 	//Default for -tors
 
 	//Add and remove functions
-	void add_receiver(Event_Listener* listener_ptr);
-	bool remove_receiver(Event_Listener* listener_ptr);
+	void add_listener(Event_Listener* listener_ptr);
+	bool remove_listener(Event_Listener* listener_ptr);
 
 	//Push and pop Event
 	void push_event(Event& e);
 	Event pop_event();
+	
+	//Process event, running it through all listeners
+	void process()
+	{
+		if (events.empty())
+			return;
+		
+		//Pop events once
+		for(auto it : listeners)
+		{
+			Event e = events.front();
+			(it)->receive_event(&e);
+			events.pop();
+		}	
+	}
 };
 
 } //namespace flgl

@@ -3,13 +3,13 @@
 namespace flgl
 {
 
-void Event_Queue::add_receiver(Event_Listener* listener_ptr)
+void Event_Queue::add_listener(Event_Listener* listener_ptr)
 {
 	listeners.push_back(listener_ptr);
 }
 
 //Returns TRUE on removing receiver
-bool Event_Queue::remove_receiver(Event_Listener* listener_ptr)
+bool Event_Queue::remove_listener(Event_Listener* listener_ptr)
 {
 	for(std::vector<Event_Listener*>::iterator it = listeners.begin(); it != listeners.end(); ++it)
 	{

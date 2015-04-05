@@ -2,6 +2,7 @@
 #define FLEXIGLASS_ANY_HPP
 
 //Credit to sehe, user of Stack Overflow
+//Code has been modified from example
 
 #include <memory>
 #include <stdexcept>
@@ -72,6 +73,8 @@ private:
 	
 	//Private members
     std::unique_ptr<storage_base> data;
+	
+	//friends
     template<typename T>
 	friend T& any_cast(any&);
 	

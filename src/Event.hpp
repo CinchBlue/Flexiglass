@@ -49,7 +49,7 @@ public:
 	}
 	
 	//Pushing data
-	template <class T> void push_data(T& i)
+	template <class T> void push_data(T i)
 	{
 		flgl::any package = i;
 		data.push_back(package);
@@ -58,13 +58,11 @@ public:
 	//Set
 	void set_name(const std::string& str) {name = str;}
 	void set_type(const std::string& str) {type = str;}
-	
-
 		
 	//Get
 	std::string& get_name() {return name;}
 	std::string& get_type() {return type;}
-	std::list<flgl::any>& get_data() {return data;}
+	flgl::data_list& get_data() {return data;}
 	
 	//Clear
 	void clear_data() {data.clear();}

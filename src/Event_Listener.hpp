@@ -8,17 +8,25 @@
 namespace flgl
 {
 
-//Must be added to a class 
+//Must be extended
 class Event_Listener
 {
-private:
+protected:
 	Event_Receivable* owner;
 public:
 	Event_Listener(Event_Receivable* owner_obj);
 	~Event_Listener() = default;
 
-	virtual void receive_event(Event* e) = 0;
-	virtual void notify_owner(Event* e) = 0;
+	virtual void receive_event(Event* e)
+	{
+		notify_owner(e);		
+	}
+	
+	virtual void notify_owner(Event* e)
+	{
+		owner->on_notify(e);
+	}
+	
 	void set_owner(Event_Receivable* owner_obj) {owner = owner_obj;}
 
 	Event_Receivable* get_owner_obj() {return owner;}

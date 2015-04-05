@@ -30,7 +30,7 @@ int main()
 	std::cout << received.get_type() << std::endl;
 	
 	//Retrieve the list of data from the event
-	flgl::info_list event_data = received.get_data();
+	flgl::data_list event_data = received.get_data();
 	
 	//Start popping from the front
 	for (auto it : event_data)

@@ -15,7 +15,7 @@ class Event_Sender
 public:
 	//Constructor
 	//Must always provide a target queue
-	Event_Sender(const Event_Queue& e_queue);
+	Event_Sender(Event_Queue& e_queue);
 	
 	//Send to default or targeted queue
 	void send_event(Event& e);
