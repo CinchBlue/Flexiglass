@@ -23,7 +23,7 @@ All Flexiglass examples are set to be compiled out of the box with a simple "mak
 
 ##Using Flexiglass
 
-Flexiglass (**namespace flgl**) implements a basic event-handling framework. It has an **Event\_Queue** class for notifying **Event\_Listener** objects and holding **Event** objects. It also features a basic **Event\_Receivable** interface (consisting of only on_notify(flgl::Event*) to be inherited from. Finally, it also has a basic **Event\_Sender** object to serve as an easy-to-add hub for sending events onto an Event\_Queue object.
+Flexiglass (**namespace flgl**) implements a basic event-handling framework. It has an **Event\_Queue** class for notifying **Event\_Listener** objects and holding **Event** objects. It also features a basic **Event\_Receivable** interface (consisting of only on_notify) to be inherited from. Finally, it also has a basic **Event\_Sender** object to serve as an easy-to-add hub for sending events onto an Event\_Queue object.
 
 To use Flexiglass, it requires the inclusion of a great amount of headers--one:
 
