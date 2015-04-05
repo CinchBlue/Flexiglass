@@ -1,5 +1,5 @@
 #Flexiglass
-Flexiglass is a generic event system with a very light footprint. With just the C++ Standard Library, this little event system can help you with probably nothing, as you can probably just roll one more expansive and better-performing than this one.
+Flexiglass is a generic event system framework with a very light footprint. With just the C++ Standard Library, this little event system can help you with probably nothing, as you can probably just roll one more expansive and better-performing than this one.
 
 Flexiglass is just an educational experiment. The library currently is suited towards Windows, and uses only MinGW-w64 to compile. Be sure to use C++11.
 
