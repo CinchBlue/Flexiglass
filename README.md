@@ -6,8 +6,8 @@ Flexiglass is just an educational experiment. The library currently is suited to
 ##Building Flexiglass
 
 Building Flexiglass is easy. The Makefile in the top directory is set to build a static library of Flexiglass for Windows 8.1, but should be very easily adjusted for Linux.
-
-On Windows, if you use MinGW-w64 you need only use these commands:
+**
+On Windows, if you use MinGW-w64 you need only use these commands:**
 
 	mingw32-make windows_clean
 	mingw32-make window_prep
@@ -15,10 +15,20 @@ On Windows, if you use MinGW-w64 you need only use these commands:
 
 These will help you build and rebuild Flexiglass as needed. If you have a better build system, by all means, just plug the source files in.
 
+**The makefile should build the static library within the /lib directory.** If it cannot build, be sure that the /lib and /obj directories are empty.
+
+###Examples
+
+All Flexiglass examples are set to be compiled out of the box with a simple "make" or "mingw32-make" command, with no parameters or settings required except that the library be built before hand.
+
 ##Using Flexiglass
 
-Flexiglass implements a basic event-handling framework. It has an **Event\_Queue** class for notifying **Event\_Listener** objects and holding **Event** objects. It also features a basic **Event\_Receivable** interface to be inherited from. Finally, it also has a basic **Event\_Sender** object to serve as a nice package to tack onto a class in the case that they also want to fire off events.
+Flexiglass (**namespace flgl**) implements a basic event-handling framework. It has an **Event\_Queue** class for notifying **Event\_Listener** objects and holding **Event** objects. It also features a basic **Event\_Receivable** interface (consisting of only on_notify(flgl::Event*) to be inherited from. Finally, it also has a basic **Event\_Sender** object to serve as an easy-to-add hub for sending events onto an Event\_Queue object.
+
+To use Flexiglass, it requires the inclusion of a great amount of headers--one:
 
 	#include "Flexiglass.hpp"
 
 and make sure to add a -I and and -L for both the directories for the header file and the static library.
+
+
