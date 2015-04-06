@@ -5,11 +5,9 @@
 
 int main()
 {
-	auto t_start = std::chrono::high_resolution_clock::now();
-	
 	//Events in Flexiglass can only be created
 	//with its name and type provided as strings
-	flgl::Event e("Event_Name", "Type");
+	flgl::Event e("event_type", "event_name");
 	std::string str = "Hello World!";
 	std::string str2 = "2nd insertion";
 	
@@ -38,8 +36,9 @@ int main()
 	//The name and type can also be used as metadata
 	//This is convenient for peeking at the type of the object
 	//without having to use a cast mechanism
-	std::cout << received.get_name() << std::endl;
 	std::cout << received.get_type() << std::endl;
+	std::cout << received.get_name() << std::endl;
+
 	
 	//Retrieve the list of data from the event
 	flgl::data_list event_data = received.get_data();
@@ -61,9 +60,5 @@ int main()
 		std::cout << "Bad cast from int to std::string! " << ex.what() << std::endl;
 	}
 	
-	auto t_end = std::chrono::high_resolution_clock::now();
-	std::cout << "Wall clock time passed: " << std::chrono::duration<double, std::milli>(t_end-t_start).count() << std::endl;
-	
-
 	return 0;
 }

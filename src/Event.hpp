@@ -23,9 +23,9 @@ class Event
 public:
 	//Constructor
 	//Events can only be constructed with the strings provided
-	Event(const std::string& name_str, const std::string& type_str)
-	:	name(name_str),
-		type(type_str)
+	Event(const std::string& type_str, const std::string& name_str)
+	:	type(type_str),
+		name(name_str)
 	{}
 	
 	//Destructor
@@ -33,8 +33,8 @@ public:
 	
 	//Copy constructor
 	Event(const Event& other)
-	: 	name(other.name),
-		type(other.type),
+	: 	type(other.type),
+		name(other.name),
 		data(other.data)
 	{}
 	
@@ -43,8 +43,8 @@ public:
 	{
 		if (this != &other)
 		{
-			name = other.name;
 			type = other.type;
+			name = other.name;
 			data = other.data;
 		}
 		return *this;
@@ -52,8 +52,8 @@ public:
 	
 	//Move constructor
 	Event(Event&& other)
-	:	name(std::move(other.name)),
-		type(std::move(other.type)),
+	: 	type(std::move(other.type)),
+		name(std::move(other.name)),
 		data(std::move(other.data))
 	{}
 	
@@ -88,8 +88,8 @@ public:
 	//Clear
 	void clear_data() {data.clear();}
 private:
-	std::string name;
 	std::string type;
+	std::string name;
 	std::deque<flgl::any> data;
 };
 

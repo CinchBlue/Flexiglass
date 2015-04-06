@@ -45,7 +45,7 @@ public:
 			std::cout << buffer << "\n";
 			
 			//Package an flgl::Event with data
-			flgl::Event msg(name, "reader_text");
+			flgl::Event msg("reader_text", name);
 			msg.push_data(buffer);
 			
 			//Send an Event to the Event_Queue
