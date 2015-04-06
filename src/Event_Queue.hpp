@@ -15,7 +15,7 @@ class Event_Queue
 private:
 	//TODO use weak_ptr for this
 	std::queue<Event> events;
-	std::vector<Event_Listener*> listeners;
+	std::vector<std::weak_ptr<Event_Listener>> listeners;
 public:
 	//Default for -tors
 	Event_Queue() = default;
@@ -24,8 +24,8 @@ public:
 	Event_Queue(Event_Queue&&) = default;
 
 	//Add and remove functions
-	void add_listener(Event_Listener* listener_ptr);
-	bool remove_listener(Event_Listener* listener_ptr);
+	void add_listener(std::shared_ptr<Event_Listener> listener_ptr);
+	bool remove_listener(std::shared_ptr<Event_Listener> listener_ptr);
 
 	//Push and pop Event
 	void push_event(Event& e);
@@ -37,13 +37,20 @@ public:
 		if (events.empty())
 			return;
 		
+		//TODO substitute with std::for_each and a lambda
 		//Pop events once
-		for(auto it : listeners)
+		for(auto it = listeners.begin(); it != listeners.end(); ++it)
 		{
 			Event e = events.front();
-			(it)->receive_event(&e);
-			events.pop();
+			
+			if (auto ptr = it->lock())
+				(ptr)->receive_event(e);
+			else
+				listeners.erase(it);
+			
 		}	
+		
+		events.pop();
 	}
 };
 

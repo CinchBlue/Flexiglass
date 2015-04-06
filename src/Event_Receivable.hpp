@@ -14,7 +14,7 @@ class Event_Receivable
 {
 public:
 	virtual ~Event_Receivable() {}
-	virtual void on_notify(Event* e) = 0;
+	virtual void on_notify(Event& e) = 0;
 
 };
 

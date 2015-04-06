@@ -81,9 +81,9 @@ public:
 	void set_type(const std::string& str) {type = str;}
 		
 	//Get
-	std::string& get_name() {return name;}
-	std::string& get_type() {return type;}
-	flgl::data_list& get_data() {return data;}
+	std::string get_name() const {return name;}
+	std::string get_type() const {return type;}
+	flgl::data_list get_data() const {return data;}
 	
 	//Clear
 	void clear_data() {data.clear();}
