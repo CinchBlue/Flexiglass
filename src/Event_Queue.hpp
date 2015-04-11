@@ -30,6 +30,9 @@ public:
 	//Push and pop Event
 	void push_event(Event& e);
 	Event pop_event();
+    
+    //status functions
+    bool empty() {return events.empty();}
 	
 	//Process event, running it through all listeners
 	void process()
