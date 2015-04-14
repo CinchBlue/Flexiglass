@@ -9,8 +9,8 @@ Building Flexiglass is easy. The Makefile in the top directory is set to build a
 **
 On Windows, if you use MinGW-w64 you need only use these commands:**
 
-	mingw32-make windows_clean
-	mingw32-make window_prep
+	mingw32-make c
+	mingw32-make p
 	mingw32-make
 
 These will help you build and rebuild Flexiglass as needed. If you have a better build system, by all means, just plug the source files in.
