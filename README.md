@@ -7,8 +7,8 @@ Flexiglass is just an educational experiment. Be sure to use a C++11 compiler.
 
 Building Flexiglass is easy. If you use CMake (minimum version 2.8) at the command line with GNU Make, use the following commands:
 
-	cmake -G"MinGW Makefiles"
-	mingw32-make
+	cmake -G"Unix Makefiles" (OR MinGW Makefiles for MinGW)
+	make (OR mingw32-make for MinGW)
 
 If you need to rebuild, simply remove the CMake directories and files besides CMakeLists.txt. If you have a better build system, by all means, just plug the source files in.
 
